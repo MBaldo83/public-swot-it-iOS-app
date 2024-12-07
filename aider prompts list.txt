@@ -1,0 +1,24 @@
+Entities to test:
+JSONDecodingNetworkLayer
+HeadersModifier
+IdentityModifier
+RequestBuilder
+RequestBuilderDecodingEndpointNetwork
+
+// COMMON FILES FOR ALL TESTS
+/add Swot_It/SwotItApp/Networking/DecodingNetworkLayer.swift Swot_It/SwotItApp/Networking/NetworkLayer.swift Swot_It/SwotItTests/NetworkingTests/JSONDecodingNetworkLayerTests.swift Swot_It/SwotItApp/Repositories/DecksAPIClient.swift Swot_It/SwotItApp/Networking/NetworkLayer.swift Swot_It/SwotItApp/Networking/DecodingNetworkLayer.swift Swot_It/SwotItTests/NetworkingTests/NetworkingTestsMocks.swift
+
+/add Swot_It/SwotItApp/Networking/HeadersModifier.swift
+/add Swot_It/SwotItApp/Networking/IdentityModifier.swift
+/add Swot_It/SwotItApp/Networking/RequestBuilder.swift
+/add Swot_It/SwotItApp/Networking/RequestBuilderDecodingEndpointNetwork.swift
+
+Write unit tests for XXXXXXXX that mocks the injected dependencies and tests the logic of the entity. Use JSONDecodingNetworkLayer as an example when writing the tests. Add a new file into the folder Swot_It/SwotItTests/NetworkingTests
+
+/run sh ./run_tests.sh
+
+/ask how can I fix the error above?
+
+add the required files to the chat to further understand the issue
+
+fix the issues from running the tests

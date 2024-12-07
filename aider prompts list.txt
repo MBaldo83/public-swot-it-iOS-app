@@ -6,14 +6,19 @@ RequestBuilder
 RequestBuilderDecodingEndpointNetwork
 
 // COMMON FILES FOR ALL TESTS
-/add Swot_It/SwotItApp/Networking/DecodingNetworkLayer.swift Swot_It/SwotItApp/Networking/NetworkLayer.swift Swot_It/SwotItTests/NetworkingTests/JSONDecodingNetworkLayerTests.swift Swot_It/SwotItApp/Repositories/DecksAPIClient.swift Swot_It/SwotItApp/Networking/NetworkLayer.swift Swot_It/SwotItApp/Networking/DecodingNetworkLayer.swift Swot_It/SwotItTests/NetworkingTests/NetworkingTestsMocks.swift
+/add Swot_It/SwotItApp/Networking/DecodingNetworkLayer.swift Swot_It/SwotItApp/Networking/NetworkLayer.swift 
+Swot_It/SwotItTests/NetworkingTests/JSONDecodingNetworkLayerTests.swift Swot_It/SwotItTests/NetworkingTests/NetworkingTestsMocks.swift
 
 /add Swot_It/SwotItApp/Networking/HeadersModifier.swift
-/add Swot_It/SwotItApp/Networking/IdentityModifier.swift
-/add Swot_It/SwotItApp/Networking/RequestBuilder.swift
+/add Swot_It/SwotItApp/Networking/IdentityModifier.swift 
+/add Swot_It/SwotItApp/Networking/RequestBuilder.swift Swot_It/SwotItApp/Repositories/DecksAPIClient.swift Swot_It/SwotItApp/Networking/Endpoint.swift
 /add Swot_It/SwotItApp/Networking/RequestBuilderDecodingEndpointNetwork.swift
 
-Write unit tests for XXXXXXXX that mocks the injected dependencies and tests the logic of the entity. Use JSONDecodingNetworkLayer as an example when writing the tests. Add a new file into the folder Swot_It/SwotItTests/NetworkingTests
+Write a Mock of RequestBuilding that implements the protocol, allows for custom responses, and saves the arguments provided to the last method invocation. Add the mock to NetworkingTestsMocks.swift
+
+Write unit tests for RequestBuilderDecodingEndpointNetwork using MockRequestBuilder that creates an instance of RequestBuilderDecodingEndpointNetwork as a variable named `sut`, and mocks the injected dependencies and tests the logic of the entity. Use JSONDecodingNetworkLayerTests as an example when writing the tests. Add a new file into the folder Swot_It/SwotItTests/NetworkingTests
+
+Write unit tests for IdentityModifier using MockIdentity that creates an instance of IdentityModifier as a variable named `sut`, and mocks the injected dependencies and tests the logic of the entity. Use JSONDecodingNetworkLayerTests as an example when writing the tests.
 
 /run sh ./run_tests.sh
 

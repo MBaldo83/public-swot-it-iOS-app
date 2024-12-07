@@ -3,12 +3,12 @@ import XCTest
 
 class JSONDecodingNetworkLayerTests: XCTestCase {
     var mockNetworkLayer: MockNetworkLayer!
-    var decodingNetworkLayer: JSONDecodingNetworkLayer!
+    var sut: JSONDecodingNetworkLayer!
 
     override func setUp() {
         super.setUp()
         mockNetworkLayer = MockNetworkLayer()
-        decodingNetworkLayer = JSONDecodingNetworkLayer(wrapping: mockNetworkLayer)
+        sut = JSONDecodingNetworkLayer(wrapping: mockNetworkLayer)
     }
 
     func testSuccessfulDecoding() async {
@@ -22,7 +22,7 @@ class JSONDecodingNetworkLayerTests: XCTestCase {
         mockNetworkLayer.result = .success(jsonData)
 
         // When
-        let result: Result<SampleData, NetworkIntegrationError> = await decodingNetworkLayer.send(URLRequest(url: URL(string: "https://example.com")!), decodeTo: SampleData.self)
+        let result: Result<SampleData, NetworkIntegrationError> = await sut.send(URLRequest(url: URL(string: "https://example.com")!), decodeTo: SampleData.self)
 
         // Then
         switch result {
@@ -39,7 +39,7 @@ class JSONDecodingNetworkLayerTests: XCTestCase {
         mockNetworkLayer.result = .success(invalidJsonData)
 
         // When
-        let result: Result<SampleData, NetworkIntegrationError> = await decodingNetworkLayer.send(URLRequest(url: URL(string: "https://example.com")!), decodeTo: SampleData.self)
+        let result: Result<SampleData, NetworkIntegrationError> = await sut.send(URLRequest(url: URL(string: "https://example.com")!), decodeTo: SampleData.self)
 
         // Then
         switch result {
@@ -59,7 +59,7 @@ class JSONDecodingNetworkLayerTests: XCTestCase {
         mockNetworkLayer.result = .failure(.unexpectedResponse)
 
         // When
-        let result: Result<SampleData, NetworkIntegrationError> = await decodingNetworkLayer.send(URLRequest(url: URL(string: "https://example.com")!), decodeTo: SampleData.self)
+        let result: Result<SampleData, NetworkIntegrationError> = await sut.send(URLRequest(url: URL(string: "https://example.com")!), decodeTo: SampleData.self)
 
         // Then
         switch result {

@@ -1,7 +1,7 @@
 import Foundation
 
-protocol RequestBuilding {
-    func buildRequest(from endpoint: Endpoint) -> URLRequest?
+protocol DecodingEndpointNetwork {
+    func send<T: Decodable>(_ endpoint: Endpoint, decodeTo type: T.Type) async -> Result<T, NetworkIntegrationError>
 }
 
 class NetworkDecksAPIClient: DecksAPIClient {

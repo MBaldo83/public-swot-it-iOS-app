@@ -1,7 +1,7 @@
 import SwiftUI
 
 protocol RootTabViewHandler {
-    var buildDeckViewHandler: BuildDeckViewHandler { get }
+    var buildDeckViewHandler: DeckGeneratorViewHandler { get }
 }
 
 struct RootTabView<TabZero: View, TabOne: View, TabTwo: View>: View {

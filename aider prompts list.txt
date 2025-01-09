@@ -1,3 +1,78 @@
+--- Scripting Against Aider 
+
+1. save config: 
+ - add files: how-to-create new view, data required for view (LocalDeck + QuestionSubmission)
+2. start and run prompt to make new view, saving data variables in desired way
+3. save config: 
+ - add files: just-created new view, all data (LocalDeck + QuestionSubmission), navigation files
+ - make unique chat history
+ - load chat history - true
+4. start and run prompt to add navigation route with data requirements
+5. start and run prompt to implement switch "func view(for route: Router.Route) -> some View"
+6. save config:
+ - add files: navigate from view DeckReviewView
+7. start and run prompt to navigate to new view
+8. 
+
+
+
+
+--- Prompts to navigate to a new view
+
+Elements required to make the view and navigate:
+
+-----
+
+Feature Requirements DeckReviewView:
+
+* View Interactions
+ - SubmitResults
+ - Back
+
+* Navigation
+ - SubmitResults(Forward(DeckReviewResultsView))
+
+ -----
+
+Feature Requirements DeckResultsView:
+
+* ViewLayout
+  - Header("Congratulatory Message")
+  - SubHeader(LocalDeck topic)
+  - Chart(QuestionSubmission)
+  - Button(Continue)
+
+* View Data Requirements 
+  - PresentedStates: [
+    ReadOnly(LocalDeck),
+    ReadOnly(QuestionSubmission)
+  ]
+  - ExternalModifiersOfState: []
+
+* View Interactions
+ - Continue
+ - Back
+
+ * Navigation
+ - Continue(Back(DeckReviewResultsView))
+ - Back(Back())
+
+View-Feature Architecture:
+* A view is a SwiftUI View
+- PresentedState
+ - ReadOnly, ReadWrite
+- ExternalModifiersOfState
+ - [ViewNames] 
+- ViewSideEffectRequirements
+ - AsyncPresentedState
+ - AsyncOtherModel(ModelDomain)
+
+ModelDomain:
+- Identity
+- DecksCollection
+
+--- Unit Test Prompts
+
 Entities to test:
 JSONDecodingNetworkLayer
 HeadersModifier

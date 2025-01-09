@@ -4,9 +4,7 @@ import Foundation
 class SwotItModel: ObservableObject {
     
     @Published var viewableAccessToken: String?
-    @Published var userSavedDecks: LoadableResource<[APISavedDeckSummary]> = .initial
     @Published var simplifiedDeckGenerationProcess: LoadableResource<DeckGenerationProcessResource> = .initial
-    
     @Published var localUserSavedDecks: LoadableResource<[LocalDeck]> = .initial
     
     var apiClient: DecksAPIClient

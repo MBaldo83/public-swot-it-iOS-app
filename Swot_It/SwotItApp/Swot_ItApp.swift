@@ -16,8 +16,8 @@ struct SwotItApp: App {
         self.apiClient = newApiClient
     }
     
-    private var deckViewHandler: BuildDeckViewHandler {
-        DeckViewHandler(
+    private var deckViewHandler: DeckGeneratorViewHandler {
+        ResourceManagingDeckGeneratorViewHandler(
             cardGenerator: model,
             deckResourceManagementUseCase: model
         )

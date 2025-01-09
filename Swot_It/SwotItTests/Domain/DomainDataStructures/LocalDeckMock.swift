@@ -33,10 +33,10 @@ extension LocalDeck.Question {
 
 extension LocalDeck.Question.Submission {
     static func mock(
-        result: Result = .unanswered,
+        result: Result = .correct,
         date: Date = .init(timeIntervalSince1970: 0)
     ) -> LocalDeck.Question.Submission {
-        LocalDeck.Question.Submission(
+        .init(
             result: result,
             date: date
         )

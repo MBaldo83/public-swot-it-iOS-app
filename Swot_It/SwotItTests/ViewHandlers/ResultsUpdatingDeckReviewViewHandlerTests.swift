@@ -40,15 +40,3 @@ final class ResultsUpdatingDeckReviewViewHandlerTests: XCTestCase {
         XCTAssertEqual(mockResultsUpdater.deckId, deckId)
     }
 }
-
-extension QuestionSubmission {
-    static func mock(
-        questionId: UUID = UUID(),
-        submission: LocalDeck.Question.Submission = .mock()
-    ) -> QuestionSubmission {
-        .init(
-            questionId: questionId,
-            submission: submission
-        )
-    }
-}
